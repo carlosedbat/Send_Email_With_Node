@@ -1,6 +1,4 @@
-para iniciar o projeto:
-
-Requisitos:
+Requisitos instalados de forma global:
 nodemon
 typescript
 ts-node
@@ -15,11 +13,9 @@ Passos para a inicialização:
 
 ----------------------
 
-Iniciar prisma
-1 - executar no terminal "npx prisma init"
-iniciar um projeto prisma
+Para utilizar este modelo, é necessário possuir um servidor smtp. O servidor utilizado foi o "mailtrap", que disponibiliza um serviços para testes.
+Após configurar os acessos no arquivo de variáveis de ambiente (.env), basta iniciar o servidor com o comando no terminal "npm run start-dev", e enviar uma requisição post com os seguintes campos:
 
-2 - configurar o arquivo .env com as informacoes de conexao do BD.
-
-3 - executar no terminal "npx prisma db pull"
-para baixar o modelo de dados existente.
+from: email-de-quem-esta-enviando@dominio.com.br
+subject: assunto do email a ser enviado
+email: texto conteudo do e-mail
