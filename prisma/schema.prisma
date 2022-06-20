@@ -1,0 +1,67 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model tab_clientes {
+  id             Int       @id @default(autoincrement())
+  empresa        String?   @db.VarChar(100)
+  cnpj           String?   @db.VarChar(18)
+  senha          String    @db.VarChar(50)
+  linkCert       String?   @db.VarChar(255)
+  linkPad        String?   @db.VarChar(255)
+  email          String?   @db.Text
+  telefone       String?   @db.VarChar(20)
+  celular        String?   @db.VarChar(20)
+  historico      String?   @db.VarChar(255)
+  status         String?   @db.VarChar(10)
+  foto           String?   @db.VarChar(200)
+  data_cadastro  DateTime? @default(now()) @db.Timestamp(0)
+  data_alteracao DateTime? @db.Timestamp(0)
+}
+
+model tbl_promocao {
+  id          Int      @id @default(autoincrement())
+  foto        String?  @db.VarChar(50)
+  nomeProduto String?  @db.VarChar(50)
+  precoDe     String?  @default("R$") @db.VarChar(10)
+  precoPor    String?  @default("R$") @db.VarChar(10)
+  data        DateTime @default(now()) @db.Timestamp(0)
+}
+
+model tbl_text {
+  id                Int     @id @default(autoincrement())
+  textEmpresa       String? @db.VarChar(4000)
+  textContato       String? @db.VarChar(4000)
+  textServicos      String? @db.VarChar(4000)
+  textCertificacoes String? @db.VarChar(4000)
+  textCertificados  String? @db.VarChar(4000)
+}
+
+model tbl_usuario {
+  id      Int    @id @default(autoincrement())
+  usuario String @db.VarChar(150)
+  senha   String @db.VarChar(50)
+}
+
+model tbl_promo_new {
+  id          Int     @id @default(autoincrement())
+  image       String? @db.VarChar(150)
+  productName String? @db.VarChar(100)
+  priceFrom   Float?
+  priceTo     Float?
+  active      String? @db.VarChar(45)
+}
+
+model tbl_clients_new {
+  id       Int      @id @default(autoincrement())
+  cnpj     String?  @db.VarChar(45)
+  password String?  @db.VarChar(45)
+  name     String?  @db.VarChar(45)
+  link     String?  @db.VarChar(45)
+  active   Boolean? @default(true)
+}

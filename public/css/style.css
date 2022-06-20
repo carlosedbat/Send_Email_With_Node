@@ -1,0 +1,30 @@
+body{
+    background-color: rgb(240, 240, 240);
+}
+
+.menuContainer{
+    background-color: rgb(53, 80, 235);
+    display: flex;
+    justify-content: space-between;
+    color: white;
+}
+
+.menuContainer a{
+    text-decoration: none;
+    color: white;
+}
+
+.areaCardsProducts{
+    display: flex;
+    justify-content: space-between;
+}
+
+.cardProduct{
+    width: 150px;
+    height: 200px;
+}
+
+.cardImage img{
+    width: 150px;
+    height: 150px;
+}
